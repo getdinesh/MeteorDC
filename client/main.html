@@ -1,0 +1,53 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Meteor DC Gamification</title>
+</head>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="gameboard">
+    {{#each printScore}}
+    <li class="htmlStyle_Employee {{selectedClass}}">{{name}} : {{score}}
+    <a href="{{pathFor 'empDetailsPage'}}" class="discuss btn btn-default">Details...</a>
+    </li>
+    {{/each}}
+    <input type="button" class="addPoints" value="Give 5 Points"/>
+    <input type="button" class="removePoints" value="Take 5 Points"/>
+    <br>
+    <br>
+    {{>addEmployeeForm}}
+</template>
+
+<template name="employeeDetails">
+    <li class="htmlStyle_Employee {{selectedClass}}">{{name}} : {{score}}</li>
+    <li class="htmlStyle_Employee {{selectedClass}}">{{title}} </li>
+    <li class="htmlStyle_Employee {{selectedClass}}">{{sex}} </li>
+    <li class="htmlStyle_Employee {{selectedClass}}">{{department}} </li>
+    <br>
+    <br>
+</template>
+
+
+<template name="addEmployeeForm">
+    <form>
+        Employee Name:
+        <input type="text" name="empName">
+        <br>
+        Score:
+        <input type="text" name="empScore">
+        <br>
+        Title:
+        <input type="text" name="empTitle">
+        <br>
+        Sex:
+        <input type="text" name="empSex">
+        <br>
+        Department:
+        <input type="text" name="empDept">
+        <br>
+        <input  type="submit" value="Register">
+    </form>
+</template>
